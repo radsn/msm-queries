@@ -1,0 +1,59 @@
+<h1>
+  List of all movies
+</h1>
+
+<hr>
+
+<table border="1">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Image
+    </th>
+
+    <th>
+      Title
+    </th>
+
+    <th>
+      Year
+    </th>
+
+    <th>
+      Director
+    </th>
+
+    <th>
+    </th>
+  </tr>
+  <% @list_of_movies.each do |the_movie| %>
+  <tr>
+    <th>
+      <%= the_movie.id %>
+    </th>
+
+    <th>
+      <img src="<%= the_movie.image %>" style="width:250px;">
+    </th>
+
+    <th>
+      <%= the_movie.title %>
+    </th>
+
+    <th>
+      <%= the_movie.year %>
+    </th>
+
+    <th>
+      <%= Director.where({ :id => the_movie.director_id }).first.name %>
+    </th>
+
+    <th>
+      <a href="/movies/<%= the_movie.id %>">Show details</a>
+    </th>
+  </tr>
+  <% end %>
+</table>
